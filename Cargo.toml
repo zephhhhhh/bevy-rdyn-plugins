@@ -2,10 +2,10 @@
 name = "bevy-rdyn-plugins"
 version = "0.1.0"
 edition = "2021"
-exclude = ["crates/"]
 authors = ["zephhhhhh"]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[features]
+verbose_loading = ["rdyn-plugins/verbose_loading"]
 
 [dependencies]
 rdyn-plugins = { path = "crates/rdyn-plugins" }

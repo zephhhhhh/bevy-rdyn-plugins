@@ -2,6 +2,7 @@
 name = "rdyn-plugins-macros"
 version = "0.1.0"
 edition = "2021"
+authors = ["zephhhhhh"]
 
 [lib]
 proc-macro = true

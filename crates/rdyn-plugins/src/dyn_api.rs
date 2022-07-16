@@ -8,9 +8,9 @@ use libloading::{Library, Symbol};
 
 /// Name of symbol to be exported/imported to create the plugin.
 pub const CREATE_RDYN_SYM_NAME: &'static [u8] = b"_create_rdyn_plugin";
-/// The type required to be returned from the plugin creation method.
+/// The type required to be returned from the plugin creation function.
 pub type RDynReturn = Box<dyn Plugin>;
-/// Type of the create plugin symbol.
+/// Type that represents the function signature of create plugin symbol.
 pub type CreateRDynPlugin = fn() -> RDynReturn;
 
 /// Stores a Rust dynamic plugin along with the dynamic library from which it was loaded.
@@ -73,7 +73,7 @@ impl RustDynPlugin {
 /// Load a rust dynamic plugin from the specified path.
 /// # Unsafety
 /// Undefined behaviour expected if the symbol loaded from the symbol named 
-/// [Create RDyn Symbol Name](CREATE_RDYN_SYM_NAME) within the loaded library
+/// [Create RDyn Plugin Symbol Name](CREATE_RDYN_SYM_NAME) within the loaded library
 /// does not match the function signature [CreateRDynPlugin]
 #[inline]
 pub fn load_rdyn_plugin(path: &str) -> Option<RustDynPlugin> {

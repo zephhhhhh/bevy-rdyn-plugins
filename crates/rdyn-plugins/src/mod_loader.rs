@@ -77,7 +77,7 @@ impl ModLoaderExt for App {
                 .for_each(|plugin| match plugin.path().to_str() {
                     None => {
                         #[cfg(feature = "verbose_loading")]
-                        warn!("Failed to get path of plugin from: '{}'", mod_path);
+                        warn!("Failed to get path of plugin from: '{:?}'", plugin);
                     }
                     Some(plugin_path) => {
                         if let Some(plugin) = self.load_mod(plugin_path) {

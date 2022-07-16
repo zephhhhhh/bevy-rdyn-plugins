@@ -8,8 +8,21 @@ use crate::dyn_api::*;
 /// API extension for bevy to allow loading mods into an application.
 pub trait ModLoaderExt {
     /// Loads a mod from a specified file path into an application.
+    /// # Example
+    /// ```
+    /// let mut app = App::new();
+    /// match app.load_mod("plugins/plugin.dll") {
+    ///     Some(plugin) => println!("Loaded!"),
+    ///     None => println!("Failed to load!"),
+    /// }
+    /// ```
     fn load_mod(&mut self, mod_path: &str) -> Option<RustDynPlugin>;
     /// Load all mods found in a directory into an application.
+    /// # Example
+    /// ```
+    /// let mut app = App::new();
+    /// app.load_mods("plugins");
+    /// ```
     fn load_mods(&mut self, mods_directory: &str) -> &mut Self;
 }
 

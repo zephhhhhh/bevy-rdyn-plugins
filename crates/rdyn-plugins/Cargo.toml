@@ -1,0 +1,11 @@
+[package]
+name = "rdyn-plugins"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+verbose_loading = []
+
+[dependencies]
+bevy = { version = "0.7", default-features = false }
+libloading = { version = "0.3" }

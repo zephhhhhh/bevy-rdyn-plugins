@@ -54,6 +54,7 @@ impl ModLoaderExt for App {
         match RustDynPlugin::load_from(mod_path) {
             Some(plugin) => {
                 plugin.build(self);
+                #[cfg(feature = "verbose_loading")]
                 info!("Loaded mod: {:?}", plugin);
                 Some(plugin)
             }
